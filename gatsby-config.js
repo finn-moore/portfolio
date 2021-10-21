@@ -6,10 +6,6 @@
 
 module.exports = {
   /* Your site config here */
-  siteMetadata: {
-	title: 'Portfolio',
-	name: 'Finn Moore'
-  },
   plugins: [
 	'gatsby-plugin-react-helmet'
   ],
