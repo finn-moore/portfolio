@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 class Contact extends React.Component {
 	constructor(props){
@@ -6,53 +7,57 @@ class Contact extends React.Component {
 		this.state={
 			name: '',
 			email: '',
-			message: ''
+			message: '',
+			key: process.env.GATSBY_API_KEY
 		}
 	}
 
 	handleSubmit(e){
 		e.preventDefault();
-		fetch('INSERT WEBSERVER ADDRESS', {
-			method: "POST",
-			body: JSON.stringify(this.state),
+		axios({
+			method: 'POST',
+			url: process.env.GATSBY_API_PATH,
 			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
-		}).then((response)=>{
-			if (response.json().status === 'sucess'){
-				alert("Message Sent.");
-			} else if (response.json().status === 'fail'){
-				alert("Message Faileed.");
-			}
-		})
+				'content-type': 'application/json'},
+			data: this.state})
+			.then(result => {
+				if (result.data.success===1){
+					alert('Message Sent.');
+					this.resetForm()
+				} else if (!(result.data.errors)){
+					alert('Message Failed to Send.')
+				} else {
+					alert(result.data.errors)
+				} 
+				});
 	}
 
 	resetForm(){
 		this.setState({name: '', email: '', message: ''})
+		document.getElementById("contact-form").reset();
+	}
+
+	setName(e){
+		this.setState({name: e.target.value})
+	}
+
+	setEmail(e){
+		this.setState({email: e.target.value})
+	}
+
+	setMessage(e){
+		this.setState({message: e.target.value})
 	}
 
 	render () {
 		return (
-		<form class="contact-form">
-			<input type="text"placeholder="Name"/>
-			<input type="text"placeholder="Email"/>
-			<input type="text"placeholder="Message"/>
+		<form id="contact-form" className="contact-form" onSubmit={this.handleSubmit.bind(this)}>
+			<input type="text"placeholder="Name"onChange={this.setName.bind(this)}/>
+			<input type="text"placeholder="Email"onChange={this.setEmail.bind(this)}/>
+			<input type="text"placeholder="Message"onChange={this.setMessage.bind(this)}/>
 			<button type="submit">Submit</button>
 		</form>
 		)
-	}
-
-	onNameChange(event){
-		this.setState({name: event.target.value})
-	}
-
-	onMessageChange(event){
-		this.setState({message: event.target.value})
-	}
-
-	onEmailChange(event){
-		this.setState({email: event.target.value})
 	}
 }
 
