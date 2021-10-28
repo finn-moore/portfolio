@@ -51,12 +51,14 @@ class Contact extends React.Component {
 
 	render () {
 		return (
+		<div id="contact">
 		<form id="contact-form" className="contact-form" onSubmit={this.handleSubmit.bind(this)}>
 			<input type="text"placeholder="Name"onChange={this.setName.bind(this)}/>
 			<input type="text"placeholder="Email"onChange={this.setEmail.bind(this)}/>
 			<input type="text"placeholder="Message"onChange={this.setMessage.bind(this)}/>
 			<button type="submit">Submit</button>
 		</form>
+		</div>
 		)
 	}
 }

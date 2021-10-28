@@ -6,7 +6,7 @@ const Navigation =() => {
 	return (
 	<div class="nav">
 		<div class="left">
-			<a href="/#home">Finn Moore</a>
+			<a href="/#top">Finn Moore</a>
 		</div>
 		<div class={menuState ? "menu" : "right"}>	
 			<a href="/#projects">Projects</a>
