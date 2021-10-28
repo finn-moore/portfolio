@@ -1,8 +1,12 @@
-* { font-family: monospace;
+* { font-family: "Courier New", monospace;
 	margin: 0;
 	line-height:1.5em;
 	text-align: center;
 	list-style:none;
+}
+
+html{
+	scroll-behavior: smooth;
 }
 
 .contact-form{
@@ -12,14 +16,31 @@
 	padding-bottom:80px;
 }
 
+table {
+	margin-right:auto;
+	margin-left:auto;
+	padding-top:20px;
+}
+
+th, td {
+	padding:10px 50px;
+}
+
 a:hover {
 	color:red;
 	cursor:pointer;
 }
 
 .container{
-	margin:auto;
+	padding:80px 10%;
+	font-size: 30px;
+	font-weight: bold;
 }
+
+.container > div{
+	padding-top:200px;
+}
+
 
 .nav {
 	background-color: grey;
@@ -28,6 +49,8 @@ a:hover {
 	display:flex;
 	align-items:center;
 	font-weight:bold;
+	position:fixed;
+	font-size:30px;
 }
 
 .nav a{
@@ -43,17 +66,19 @@ a:hover {
 	flex:50%;	
 	display: flex;
 	justify-content: left;
+	margin-left: 200px;
 	align-items: center;
 }
 
 .nav .left a{
+	white-space:nowrap;
 	text-decoration:none;
-	font-size: 25px;
 	margin-left:15px;
 }
 
 .nav .right, .menu {
 	flex: 50%;
+	margin-right:200px;
 	display: flex;
 	justify-content: right;
 	align-items: center;
@@ -61,7 +86,6 @@ a:hover {
 }
 .nav .right a, .menu a{
 	text-decoration:none;
-	font-size: 25px;
 	margin-left:15px;
 }
 
@@ -72,7 +96,7 @@ a:hover {
 	height: 2.5rem;
 	width: 2.5rem;
 	cursor:pointer;
-	margin-right:2rem;
+	margin-right:200px;
 }
 
 .hamburger:hover > div{
@@ -85,7 +109,7 @@ a:hover {
 	background-color:white;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1170px) {
 	.hamburger{
 		display:flex;
 	}
@@ -98,12 +122,11 @@ a:hover {
 		position:absolute;
 		width: 100%;
 		background-color:grey;
-		margin-top:238px;
+		margin-top:260px;
 		padding-bottom:10px;
 	}
 	.nav .menu a{
-		color:white;
 		text-decoration:none;
-		font-size:25px
+		font-size:30px;
 	}
 }
