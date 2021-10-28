@@ -3,6 +3,8 @@ include_once('config.php');
 
 $_POST = json_decode(file_get_contents("php://input"),true);
 
+
+
 if($_POST['key']===$key){
 	$errors = array();
 	if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,14 +19,14 @@ if($_POST['key']===$key){
 			$errors[] = ' Message is empty';
 		}
 		else {
-			$message = $_POST['message'];
+			$message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 		}
 
 		if (empty($_POST['name'])) {
 			$errors[] = ' Name is empty';
 		}
 		else {
-			$name = $_POST['name'];
+			$name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 		}
 
 	$success=0;
