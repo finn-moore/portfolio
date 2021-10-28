@@ -10,15 +10,15 @@ import '../styles/main.css'
 
 const Home = () => {
 	return (
+		<div><Navigation/>
 		<div class="container">
-			<Navigation/>
 			<Header/>
 			<Projects/>
 			<About/>
 			<Skills/>
 			<Contact/>
 			<Footer/>
-		</div>
+		</div></div>
 	)
 }
 
