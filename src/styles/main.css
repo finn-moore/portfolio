@@ -13,7 +13,36 @@ html{
 	display:flex;
 	flex-direction:column;
 	align-items:center;
-	padding-bottom:80px;
+	padding-bottom: 80px;
+}
+
+.contact-form > input{
+	border: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: #f2f2f2;
+	padding: 12px;
+	border-radius: 3px;
+	width: 30%;
+	outline: none;
+	margin: 8px;
+}
+
+.contact-message{
+	height: 200px;
+	border: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: #f2f2f2;
+	padding: 12px;
+	border-radius: 3px;
+	width: 30%;
+	outline: none;
+	margin: 8px;
 }
 
 table {
@@ -21,6 +50,7 @@ table {
 	margin-left:auto;
 	padding-top:20px;
 }
+
 
 th, td {
 	padding:10px 50px;
